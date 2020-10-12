@@ -1,7 +1,5 @@
 import "./styles.css";
 
-import "./styles.css";
-
 var timeleft;
 var bar;
 var downloadTimer;
@@ -100,44 +98,110 @@ function checkWin() {
     var viisto1 = 0;
     var viisto2 = 0;
 
+    var round = 0;
+
     for (var t = 0; t < 5; t++) {
+      round++;
+
       if (square[t].innerHTML === xo[i]) {
         vaaka1++;
-        if ()
+        if (round === 1) {
+          pysty1++;
+          viisto1++;
+        }
+        if (round === 2) {
+          pysty2++;
+        }
+        if (round === 3) {
+          pysty3++;
+        }
+        if (round === 4) {
+          pysty4++;
+        }
+        if (round === 5) {
+          pysty5++;
+          viisto2++;
+        }
       }
       if (square[t + 5].innerHTML === xo[i]) {
         vaaka2++;
+        if (round === 1) {
+          pysty1++;
+        }
+        if (round === 2) {
+          pysty2++;
+          viisto1++;
+        }
+        if (round === 3) {
+          pysty3++;
+        }
+        if (round === 4) {
+          pysty4++;
+          viisto2++;
+        }
+        if (round === 5) {
+          pysty5++;
+        }
       }
       if (square[t + 10].innerHTML === xo[i]) {
         vaaka3++;
+        if (round === 1) {
+          pysty1++;
+        }
+        if (round === 2) {
+          pysty2++;
+        }
+        if (round === 3) {
+          pysty3++;
+          viisto1++;
+          viisto2++;
+        }
+        if (round === 4) {
+          pysty4++;
+        }
+        if (round === 5) {
+          pysty5++;
+        }
       }
       if (square[t + 15].innerHTML === xo[i]) {
         vaaka4++;
+        if (round === 1) {
+          pysty1++;
+        }
+        if (round === 2) {
+          pysty2++;
+          viisto2++;
+        }
+        if (round === 3) {
+          pysty3++;
+        }
+        if (round === 4) {
+          pysty4++;
+          viisto1++;
+        }
+        if (round === 5) {
+          pysty5++;
+        }
       }
       if (square[t + 20].innerHTML === xo[i]) {
         vaaka5++;
-      }
-      if (table.rows[t].cells[0].innerHTML === xo[i]) {
-        pysty1++;
-      }
-      if (table.rows[t].cells[1].innerHTML === xo[i]) {
-        pysty2++;
-      }
-      if (table.rows[t].cells[2].innerHTML === xo[i]) {
-        pysty3++;
-      }
-      if (table.rows[t].cells[3].innerHTML === xo[i]) {
-        pysty4++;
-      }
-      if (table.rows[t].cells[4].innerHTML === xo[i]) {
-        pysty5++;
-      }
-      if (table.rows[t].cells[t].innerHTML === xo[i]) {
-        viisto1++;
-      }
-      var reverse = 4 - t;
-      if (table.rows[t].cells[reverse].innerHTML === xo[i]) {
-        viisto2++;
+        if (round === 1) {
+          pysty1++;
+          viisto2++;
+        }
+        if (round === 2) {
+          pysty2++;
+        }
+        if (round === 3) {
+          pysty3++;
+        }
+        if (round === 4) {
+          pysty4++;
+        }
+        if (round === 5) {
+          pysty5++;
+          viisto1++;
+        }
       }
       if (
         pysty1 === 5 ||
@@ -159,7 +223,7 @@ function checkWin() {
         if (xo[i] === "O") {
           alert("Player 2 won!");
         }
-        clearTable(table);
+        clearTable();
       }
     }
   }
@@ -168,28 +232,21 @@ function checkWin() {
 function checkDraw() {
   var draw_count = 0;
 
-  for (var t = 0; t < table.rows.length; t++) {
-    for (var i = 0; i < table.rows[t].cells.length; i++) {
-      if (
-        table.rows[t].cells[i].innerHTML === "X" ||
-        table.rows[t].cells[i].innerHTML === "O"
-      ) {
-        draw_count++;
-      }
+  for (var t = 0; t < square.length; t++) {
+    if (square[t].innerHTML === "X" || square[t].innerHTML === "O") {
+      draw_count++;
     }
   }
   if (draw_count === 25) {
     alert("It's a draw!");
-    clearTable(table);
+    clearTable();
   }
 }
 
-function clearTable(table) {
-  for (var t = 0; t < table.rows.length; t++) {
-    for (var i = 0; i < table.rows[t].cells.length; i++) {
-      table.rows[t].cells[i].innerHTML = "";
-      table.rows[t].cells[i].style.backgroundColor = "rgb(255, 255, 255)";
-    }
+function clearTable() {
+  for (var t = 0; t < square.length; t++) {
+    square[t].innerHTML = "";
+    square[t].style.backgroundColor = "rgb(255, 255, 255)";
   }
   bar.style.width = "0%";
   count = 0;
