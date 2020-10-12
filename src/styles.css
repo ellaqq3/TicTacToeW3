@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+}
+
+.row {
+  margin: 0px;
+}
+.col {
+  border-collapse: collapse;
+  border: 1px solid black;
+  height: 59px;
+  width: 59px;
+  text-align: center;
+  vertical-align: center;
+  font-family: Helvetica;
+  font-size: 30px;
+}
+
+t_cell {
+  border-collapse: collapse;
+  border: 1px solid black;
+  height: 59px;
+  width: 59px;
+  text-align: center;
+  vertical-align: center;
+  font-family: Helvetica;
+  font-size: 30px;
+}
