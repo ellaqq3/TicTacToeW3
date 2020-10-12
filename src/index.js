@@ -83,7 +83,7 @@ function nullTimeout() {
   clearTimeout(timeout);
 }
 
-function checkWin(table) {
+function checkWin() {
   var xo = ["X", "O"];
 
   for (var i = 0; i < 2; i++) {
@@ -103,6 +103,7 @@ function checkWin(table) {
     for (var t = 0; t < 5; t++) {
       if (square[t].innerHTML === xo[i]) {
         vaaka1++;
+        if ()
       }
       if (square[t + 5].innerHTML === xo[i]) {
         vaaka2++;
@@ -164,7 +165,7 @@ function checkWin(table) {
   }
 }
 
-function checkDraw(table) {
+function checkDraw() {
   var draw_count = 0;
 
   for (var t = 0; t < table.rows.length; t++) {
